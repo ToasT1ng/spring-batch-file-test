@@ -1,0 +1,21 @@
+spring:
+  batch:
+    jdbc:
+      initialize-schema: always
+    job:
+      enabled: false
+  datasource:
+    url: jdbc:h2:mem:batch-test-db
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: 1234
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+batch:
+  input:
+    folder: files/input
+  output:
+    folder: files/output
