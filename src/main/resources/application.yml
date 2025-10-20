@@ -19,3 +19,18 @@ batch:
     folder: files/input
   output:
     folder: files/output
+
+# SFTP 파일 복사 설정
+sftp:
+  enabled: true                          # SFTP 복사 기능 활성화 여부
+  host: sftp.example.com                 # SFTP 서버 호스트
+  port: 22                               # SFTP 서버 포트
+  username: sftpuser                     # SFTP 사용자명
+  password: your-password                # 비밀번호 (또는 privateKeyPath 사용)
+  # privateKeyPath: /path/to/private/key # Private Key 경로 (password 대신 사용 가능)
+  localBaseDir: sftp-downloads           # 로컬 다운로드 기본 디렉토리
+  cron: "0 */30 * * * *"                 # 스케줄러 실행 주기 (30분마다)
+  targets:                               # 복사할 대상 파일/디렉토리 리스트
+    - /remote/logs                       # 디렉토리 전체 복사
+    - /remote/data/file1.txt             # 단일 파일 복사
+    - /remote/data/file2.log             # 단일 파일 복사
